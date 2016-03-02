@@ -1,0 +1,7 @@
+﻿Team 1 Ideas
+
+1. Last week City Lab wrote about the gender gap in public sculpture. I’d be interested in looking at memorial data from D.C. and/or Baltimore, both of which are publically available, and analysing for racial and/or gender disparities in the subjects of statues and memorials.
+
+2. I’d be interested in looking at demographic data in the greater DC area, particularly which groups of people (age, race, gender, religion, etc.) are moving in an out of the area, and analyzing any interesting trends we might find.
+
+3. So many newsrooms do not have a set system for finding court proceedings.  Court dates change for cases all the time and there are so many cases within each court.  Newsrooms select cases to follow based on what they see first and what they think other stations are covering.  This may leave important cases without coverage. Even if reporters want to focus on a select few cases, it would be important to have a system that aggregates these cases and updates them as changes occur to save time from searching.
