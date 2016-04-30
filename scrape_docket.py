@@ -1,7 +1,10 @@
 import scraperwiki
 import re
 from lxml import html
-import csv
+from sys import argv
+import os
+
+script, case = argv
 
 url = "http://www.princegeorgescountymd.gov/sites/circuitcourt/sitepages/dailydocket.aspx"
 doc_text = scraperwiki.scrape(url)
@@ -10,11 +13,10 @@ doc = html.fromstring(doc_text)
 for row in doc.cssselect("pre"):
 	pre_text = row.cssselect("pre").pop()
 	docket = pre_text.text
-	clean_text = re.sub(r'\s{2,}','|',docket)
+	no_head = docket.replace(docket[:229], '')
+	#this should cut off the header
+	clean = re.sub(r"(\S)\ {2,}(\S)(\n?)", r"\1\t\2\3", no_head)
+	# this replaces white space with pipe delimeter and adds line break
 
-with open('data.txt', 'w') as f:
-    f.write(clean_text)
-
-# to do:
-# add line break after 4 "|" characters or ~76 total characters
-# don't print 1st and 2nd line, write new header row
+with open('data.tsv', 'w') as f:
+	f.write(clean)
