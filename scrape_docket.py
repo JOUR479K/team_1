@@ -1,5 +1,4 @@
 import scraperwiki
-#import shlex
 import re
 from lxml import html
 import csv
@@ -10,11 +9,12 @@ doc = html.fromstring(doc_text)
 
 for row in doc.cssselect("pre"):
 	pre_text = row.cssselect("pre").pop()
-	docket_data = pre_text.text
-	' '.join(docket_data.split())
-	print docket_data
+	docket = pre_text.text
+	clean_text = re.sub(r'\s{2,}','|',docket)
 
 with open('data.txt', 'w') as f:
-    f.write(docket_data)
+    f.write(clean_text)
 
-# ','.join(shlex.split(docket_data))
+# to do:
+# add line break after 4 "|" characters or ~76 total characters
+# don't print 1st and 2nd line, write new header row
