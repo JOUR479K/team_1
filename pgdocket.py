@@ -12,11 +12,22 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
-driver = webdriver.Chrome()
-driver.get("http://www.python.org")
-assert "Python" in driver.title
-elem = driver.find_element_by_name("q")
-elem.send_keys("pycon")
-elem.send_keys(Keys.RETURN)
-assert "No results found." not in driver.page_source
-driver.close()
+driver = webdriver.Firefox()
+driver.get("http://casesearch.courts.state.md.us/casesearch/")
+checkbox = driver.find_element_by_name('disclaimer').click()
+button = driver.find_element_by_name('action')
+button.click()
+case_num = driver.find_element_by_name('caseId')
+case_num = 5
+#case_num.send_keys('5')
+
+#USE FIREFOX!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+# start looping through names from docket scrape results
+#for name in docket_names:
+#	last_name.send_keys(name) # whatever last name you have
+
+
+
+
+#driver.close()
