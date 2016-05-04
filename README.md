@@ -1,3 +1,9 @@
 # Team 1
 
 JOUR479K project by Aysha Khan, Michelle Chavez and Connor Brooks.
+
+We built a scraper for the Prince George’s County Circuit Court’s daily docket using Python. The scraper can be [here](https://github.com/JOUR479K/team_1/blob/master/scrape_docket.py), and a sample of the .tsv data it extracts can be seen [here](https://github.com/JOUR479K/team_1/blob/master/data.tsv). We used ScraperWiki, like the example we found [from the MinnPost](https://github.com/MinnPost/minnpost-mn-court-dockets), to build the basic scraper. 
+
+Unlike in the BeautifulSoup example we used in class, the data on this website wasn’t formatted in an HTML table: it was uploaded as pre-formatted text, with spaces creating the columns rather than &lt;td&gt; tags. So we had to use Python regular expressions to remove all the white space between the “cells” and replace them with tabs (there were commas we couldn’t get rid of in the data itself). For that, [we got help on StackOverflow](http://stackoverflow.com/questions/36957908/removing-white-space-from-txt-with-python). (Also trying to add an email notification system? And a few things to fix in the code before final submission: tab delimited, not pipe, remove argv from imports if not using.)
+
+We also tried to use Selenium to scrape Maryland’s [state case search database](http://casesearch.courts.state.md.us/casesearch/), so that we could link its full case details with the names and case numbers scraped from the daily docket. That’s our pie-in-the-sky plan.  Ideally, we would also like to implement some kind of an email notification system that also displays this information.
